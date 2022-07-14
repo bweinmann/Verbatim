@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     const handleInput = (event) => {
-      //will handle other nonchar inputs later
+      //will handle other non-alpha inputs later
       //may modify currentinput with a function, could be affected by the dependency array
       setCurrentInput(currentInput + event.key)
     };
@@ -41,15 +41,16 @@ function App() {
   return (
     <div className="App">
        <div className = "header">
-        <h1>Verbatim</h1>
+        <h1>VERBATIM</h1>
        </div>
       <div className = "inputGrid">
-        {inputs.map((input) => {
+        {inputs.map((input, i) => {
+          //check if the index we are on is the correct one, ex. if box1 is null then we are on the first box
+          const inputChecker = i === inputs.findIndex(item => item == null);
           return (
-            <Row input = {input || ''}/>
+            <Row input = {inputChecker ? currentInput : (input || '')}/>
           )
         })}
-      {currentInput}
     </div>
   </div>
   );

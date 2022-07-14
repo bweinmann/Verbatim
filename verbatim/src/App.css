@@ -10,12 +10,15 @@
 }
 
 .header {
+  display: inline-flex;
   margin-top: 10em;
   margin-bottom: 5em;
   font-family: 'Gelasio', serif;
-  font-size: 1.5em;
+  font-size: 1.6em;
   letter-spacing: 1em;
   color: white;
+  border-bottom: 1px solid white;
+  width: 70vw;
 }
 
 .row {
@@ -28,6 +31,11 @@
 
 .box {
   display: grid;
+  color: white;
+  font-family: 'Gelasio', serif;
+  font-size: 50px;
+  place-items: center;
+  text-transform: uppercase;
   background-color: grey; 
   gap: 5px;
   border-radius: 5px;
