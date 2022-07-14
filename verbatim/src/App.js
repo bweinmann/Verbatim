@@ -15,6 +15,19 @@ function App() {
 
   // const [words, setWords] = useState([]);
   const [inputs, setInput] = useState(Array(6).fill(null))
+  const [currentInput, setCurrentInput] = useState('')
+
+  useEffect(() => {
+    const handleInput = (event) => {
+      //will handle other nonchar inputs later
+      //may modify currentinput with a function, could be affected by the dependency array
+      setCurrentInput(currentInput + event.key)
+    };
+
+    window.addEventListener('keydown', handleInput);
+    return () => window.removeEventListener('keydown', handleInput);
+  }, [currentInput]);
+
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -27,18 +40,18 @@ function App() {
 
   return (
     <div className="App">
-
        <div className = "header">
         <h1>Verbatim</h1>
        </div>
-      {
-        inputs.map(input => {
+      <div className = "inputGrid">
+        {inputs.map((input) => {
           return (
             <Row input = {input || ''}/>
           )
-        })
-      }
+        })}
+      {currentInput}
     </div>
+  </div>
   );
 }
 
