@@ -40,3 +40,15 @@
   gap: 5px;
   border-radius: 5px;
 }
+
+.right {
+  background-color: skyblue;
+}
+
+.partial {
+  background-color: rgb(247, 247, 107);
+}
+
+.wrong {
+ background-color: rgb(240, 97, 97);
+}
